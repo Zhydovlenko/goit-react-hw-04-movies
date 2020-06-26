@@ -1,0 +1,12 @@
+.link {
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 50px;
+  width: 94px;
+  height: 40px;
+  text-align: center;
+  padding: 10px 15px;
+}
+
+.activeStyle = {
+  color: 'red';
+}

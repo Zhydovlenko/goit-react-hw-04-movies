@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  /* justify-content: space-evenly; */
+}
+
+.content {
+  margin-left: 20px;
+}
+
+.btn {
+  display: block;
+  border-radius: 3px;
+}
+
+.item {
+  display: inline-block;
+  margin-right: 10px;
+}
