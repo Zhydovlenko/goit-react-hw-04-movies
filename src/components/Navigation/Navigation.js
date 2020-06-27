@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
 const Navigation = ({ routes }) => (
-  <div className="navigation">
+  <div className={styles.navigation}>
     {routes.map(({ path, name, isExact, showInNav }) =>
       showInNav ? (
         <NavLink

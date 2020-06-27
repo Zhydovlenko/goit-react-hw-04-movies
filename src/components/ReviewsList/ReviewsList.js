@@ -10,7 +10,10 @@ export default class Reviews extends Component {
 
   componentDidMount() {
     const id = getId(this.props);
-    moviesApi.fetchReviews(id).then(items => this.setState({ items }));
+    moviesApi
+      .fetchReviews(id)
+      .then(items => this.setState({ items }))
+      .catch(error => this.setState({ error }));
   }
 
   render() {

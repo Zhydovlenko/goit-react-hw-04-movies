@@ -1,3 +1,8 @@
+.navigation {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .link {
   border: 2px solid rgb(255, 255, 255);
   border-radius: 50px;
@@ -7,6 +12,7 @@
   padding: 10px 15px;
 }
 
-.activeStyle = {
-  color: 'red';
+.activeStyle {
+  background-color: #555;
+  color: white;
 }

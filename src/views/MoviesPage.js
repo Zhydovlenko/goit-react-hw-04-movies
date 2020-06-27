@@ -23,7 +23,8 @@ export default class MoviesPage extends Component {
     if (location.search !== '') {
       moviesApi
         .fetchMovies(getParams(location))
-        .then(items => this.setState({ items }));
+        .then(items => this.setState({ items }))
+        .catch(error => this.setState({ error }));
     }
   }
 
@@ -38,7 +39,10 @@ export default class MoviesPage extends Component {
 
   fetchItems = () => {
     const { searchQuery } = this.state;
-    moviesApi.fetchMovies(searchQuery).then(items => this.setState({ items }));
+    moviesApi
+      .fetchMovies(searchQuery)
+      .then(items => this.setState({ items }))
+      .catch(error => this.setState({ error }));
   };
 
   handleSubmit = query => {

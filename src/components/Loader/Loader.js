@@ -5,6 +5,6 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 export default class App extends Component {
   render() {
-    return <Loader type="ThreeDots" color="blue" height={80} width={80} />;
+    return <Loader type="ThreeDots" color="#555" height={80} width={80} />;
   }
 }

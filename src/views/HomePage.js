@@ -10,7 +10,8 @@ export default class HomePage extends Component {
   componentDidMount() {
     moviesApi
       .fetchTrendingMovies()
-      .then(items => this.setState({ items: items.results }));
+      .then(items => this.setState({ items: items.results }))
+      .catch(error => this.setState({ error }));
   }
 
   render() {

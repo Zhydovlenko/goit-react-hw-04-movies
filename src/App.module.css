@@ -19,6 +19,19 @@ img {
   height: auto;
 }
 
+ul,
+ol {
+  list-style: none;
+}
+
+li {
+  background: white;
+  list-style-type: circle;
+  list-style-position: outside;
+  padding: 0 10px;
+  margin: 0;
+}
+
 a {
   text-decoration: none;
 }

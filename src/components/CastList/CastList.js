@@ -1,30 +1,37 @@
 import React, { Component } from 'react';
+import { toast } from 'react-toastify';
 
 import * as moviesApi from '../../services/moviesApi';
+import { tmdb, defaultImage } from '../../services/tmdbImg';
 import getId from '../../utils/getId';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 export default class CastList extends Component {
   state = {
     items: [],
+    error: null,
   };
 
   componentDidMount() {
     const id = getId(this.props);
-    moviesApi.fetchCast(id).then(items => this.setState({ items }));
+    moviesApi
+      .fetchCast(id)
+      .then(items => this.setState({ items }))
+      .catch(error => this.setState({ error }));
   }
 
   render() {
-    const { items } = this.state;
+    const { items, error } = this.state;
     return (
       <ul>
-        {items &&
+        {!error &&
+          items &&
           items.map(item => (
             <li key={item.cast_id}>
               <img
                 src={
-                  item.profile_path
-                    ? `https://image.tmdb.org/t/p/w200${item.profile_path}`
-                    : 'https://us.123rf.com/450wm/oculo/oculo2004/oculo200400003/143645399-stock-vector-no-image-available-icon-.jpg?ver=6'
+                  item.profile_path ? tmdb + item.profile_path : defaultImage
                 }
                 alt={item.name}
               />
@@ -32,6 +39,7 @@ export default class CastList extends Component {
               <p> {item.character}</p>
             </li>
           ))}
+        {error && toast.error(`Something went wrong...`)}
       </ul>
     );
   }
